@@ -82,4 +82,7 @@ if __name__ == "__main__":
         toPredict.loc[len(toPredict.index)] = r
     
     toPredict['Predicted Win Rate'] = model.predict(toPredict)
+
+    for index, row in enumerate(featureSet):
+        print(row, " score: ", toPredict.loc[index, toPredict.columns == "Predicted Win Rate"].iat[0])
     
